@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bas',[\App\Http\Controllers\BasController::class,'index']);
+Route::get('/bas-service',[\App\Http\Controllers\BasController::class,'index']);
+Route::get('/youtube-service',[\App\Http\Controllers\VideoController::class,'index']);
