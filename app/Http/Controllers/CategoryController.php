@@ -8,6 +8,11 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+         $this->middleware('throttle:1,1');
+    }
+
     /**
      * Display a listing of the resource.
      *

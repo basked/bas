@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('throttle:1,1');
+
 
 Route::prefix('service')->group(function () {
     Route::get('/bas', [\App\Http\Controllers\BasController::class, 'index']);
@@ -26,9 +27,9 @@ Route::get('categories/notfound', function () {
     return view('categories.notfound');
 })->name('categories.notfound');
 
-Route::get('categories/{category}/export', [\App\Http\Controllers\CategoryController::class,'export'])->missing(
+Route::get('categories/{category}/export', [\App\Http\Controllers\CategoryController::class, 'export'])->missing(
     function () {
-      return response()->redirectToRoute('categories.notfound');
+        return Redirect::route('categories.notfound');
     }
 );
 Route::resource('categories', \App\Http\Controllers\CategoryController::class)->missing(

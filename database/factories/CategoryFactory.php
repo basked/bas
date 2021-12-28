@@ -17,7 +17,7 @@ class CategoryFactory extends Factory
         return [
             'name' => $name,
             'slug' => \Illuminate\Support\Str::slug($name),
-            'category_id' => $this->faker->randomNumber(Category::all()->toArray())
-           ];
+            'category_id' => Category::inRandomOrder()->first()?->id //?? null
+        ];
     }
 }
