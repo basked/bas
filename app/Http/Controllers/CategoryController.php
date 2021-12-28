@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-         dd('asdasd');
+         dd('index');
     }
 
     /**
@@ -27,7 +27,10 @@ class CategoryController extends Controller
     {
         //
     }
-
+    public function export(Category $category)
+    {
+        return $category->name;
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -47,7 +50,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-      $category->toArray();
+    return  $category->toArray();
     }
 
     /**

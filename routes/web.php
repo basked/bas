@@ -17,10 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('service')-> group(function () {
+Route::prefix('service')->group(function () {
     Route::get('/bas', [\App\Http\Controllers\BasController::class, 'index']);
     Route::get('/video', [\App\Http\Controllers\VideoController::class, 'index']);
 });
 
+Route::get('categories/notfound', function () {
+    return view('categories.notfound');
+})->name('categories.notfound');
 
-Route::resource('categories/{category:slug}',\App\Http\Controllers\CategoryController::class);
+Route::get('categories/{category}/export', [\App\Http\Controllers\CategoryController::class, 'export'])->missing(
+    function () {
+        return response()->redirectToRoute('categories.notfound');
+    }
+);
+Route::resource('categories', \App\Http\Controllers\CategoryController::class)->missing(
+    function () {
+        return response()->redirectToRoute('categories.notfound');
+    }
+);
