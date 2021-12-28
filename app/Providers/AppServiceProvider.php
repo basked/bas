@@ -18,7 +18,8 @@ class AppServiceProvider extends ServiceProvider
     {
        //
         $this->app->bind(VideoHosting::class,function (){
-            return new  Youtube();
+            // Сдесь можем заменить на Youtube
+            return new Vimeo();
         });
     }
 

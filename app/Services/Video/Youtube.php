@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services\Video;
-
 
 use App\Contracts\Video\VideoHosting;
 

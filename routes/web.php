@@ -17,5 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bas-service',[\App\Http\Controllers\BasController::class,'index']);
-Route::get('/youtube-service',[\App\Http\Controllers\VideoController::class,'index']);
+Route::prefix('service')-> group(function () {
+    Route::get('/bas', [\App\Http\Controllers\BasController::class, 'index']);
+    Route::get('/video', [\App\Http\Controllers\VideoController::class, 'index']);
+});
+
+
+Route::resource('categories/{category:slug}',\App\Http\Controllers\CategoryController::class);
