@@ -26,9 +26,9 @@ Route::get('categories/notfound', function () {
     return view('categories.notfound');
 })->name('categories.notfound');
 
-Route::get('categories/{category}/export', [\App\Http\Controllers\CategoryController::class, 'export'])->missing(
+Route::get('categories/{category}/export', [\App\Http\Controllers\CategoryController::class,'export'])->missing(
     function () {
-        return response()->redirectToRoute('categories.notfound');
+      return response()->redirectToRoute('categories.notfound');
     }
 );
 Route::resource('categories', \App\Http\Controllers\CategoryController::class)->missing(
