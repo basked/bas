@@ -1,31 +1,8 @@
-{{-- @dd( $statuses ?? ''  )--}}
-
-<table border="1px">
-    <thead bgcolor="#26e0da">
-    <td>
-        <strong>Statuses</strong>
-    </td>
-    @foreach ($statuses as $status)
-        <td>
-            {{$status->name}}
-        </td>
-    @endforeach
-    </thead>
-    <tbody bgcolor="#26e0da">
-    @foreach ($statuses as $status)
-        <tr>
-            <td>{{$status->name}}</td>
-            @foreach($status->statuses as $pivot_status)
-                <td>
-                    <input type="checkbox"
-                           value="{{$pivot_status->pivot->id}}"
-                           @if ($pivot_status->pivot->access)
-                           checked
-                        @endif
-                    />
-                </td>
-            @endforeach
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+@extends('layouts.app')
+@section('content')
+    <div class="container-fluid">
+        <div class="fade-in">
+               @livewire('check-statuses',['statuses'=>$statuses])
+        </div>
+    </div>
+@endsection

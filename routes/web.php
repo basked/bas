@@ -40,3 +40,7 @@ Route::resource('categories', \App\Http\Controllers\CategoryController::class)->
 
 // Работа со статусами
 Route::get('statuses',[\App\Http\Controllers\StatusController::class,'index']);
+//
+//Auth::routes();
+//
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
