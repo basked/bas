@@ -18,11 +18,12 @@
             @foreach($status->statuses as $pivot_status)
                 <td>
                     <input type="checkbox"
-                           @if ($pivot_status->pivot->access) checked  @endif  />
+                           @if ($pivot_status->pivot->access)
+                           checked
+                        @endif />
                 </td>
             @endforeach
         </tr>
-
     @endforeach
     </tbody>
 </table>
