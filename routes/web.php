@@ -37,3 +37,6 @@ Route::resource('categories', \App\Http\Controllers\CategoryController::class)->
         return response()->redirectToRoute('categories.notfound');
     }
 );
+
+// Работа со статусами
+Route::get('statuses',[\App\Http\Controllers\StatusController::class,'index']);
