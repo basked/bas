@@ -12,6 +12,6 @@ class Status extends Model
     protected $fillable = ['name', 'is_active'];
 
     public function statuses(){
-        return $this->belongsToMany(Status::class, 'pivot_statuses', 'current_status_id','next_status_id')->withPivot(['next_status_id', 'access']);
+        return $this->belongsToMany(Status::class, 'pivot_statuses', 'current_status_id','next_status_id')->withPivot(['id','next_status_id', 'access']);
     }
 }
