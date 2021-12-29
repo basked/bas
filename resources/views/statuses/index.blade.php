@@ -26,17 +26,3 @@
     @endforeach
     </tbody>
 </table>
-
-
-{{--    <strong>{{$status->name}}</strong>--}}
-{{-- --}}
-{{-- --}}
-{{--<strong>{{$status->name}}</strong>--}}
-{{--@foreach ($status->statuses  as $pstatus)--}}
-
-{{--    [ {{$pstatus->name}}  -  {{$pstatus->pivot->access}}]--}}
-
-{{--    @endforeach--}}
-{{--    </br>--}}
-
-{{--@endforeach--}}
