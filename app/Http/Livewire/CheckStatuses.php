@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Status;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -17,10 +16,7 @@ class CheckStatuses extends Component
 
     public function check_status($p_status_id)
     {
-
         $access = DB::table('pivot_statuses')->where('id', $p_status_id)->first('access');
-    $val =!$access->access;
-//     dd((bool)$access->access,$val);
-        DB::table('pivot_statuses')->where('id', $p_status_id)->update(['access' => $val]);
+        DB::table('pivot_statuses')->where('id', $p_status_id)->update(['access' => !(bool)$access->access]);
     }
 }
