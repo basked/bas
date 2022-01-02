@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use  App\Services\Shop\TextProductWritter;
+use  App\Facades\Writter;
+
+use App\Services\DateCheck;
+use Illuminate\Http\Request;
+use  App\Facades\DateService;
+use  App\Facades\Writter\WriterService;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +29,7 @@ Route::get('/', function () {
 Route::prefix('service')->group(function () {
     Route::get('/bas', [\App\Http\Controllers\BasController::class, 'index']);
     Route::get('/video', [\App\Http\Controllers\VideoController::class, 'index']);
+    Route::get('/shop', [\App\Http\Controllers\WriterController::class, 'index']);
 });
 
 Route::get('categories/notfound', function () {
