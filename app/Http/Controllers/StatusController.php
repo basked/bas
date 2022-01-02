@@ -12,4 +12,6 @@ class StatusController extends Controller
         $statuses = Status::with('statuses')->get();
         return view('statuses.index')->with(['statuses'=>$statuses ]);
     }
+
+
 }

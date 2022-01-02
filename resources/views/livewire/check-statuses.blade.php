@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-             Statuses
+                Statuses
             </div>
             <div class="card-body">
 
@@ -18,15 +18,19 @@
                     @endforeach
                     </thead>
                     <tbody>
-                    @foreach ($statuses as $status)
+                    @foreach ($statuses as $status_key=> $status)
                         <tr>
                             <td>{{$status->name}}</td>
-                            @foreach($status->statuses as $pivot_status)
+                            @foreach($status->statuses as $pivot_status_key=> $pivot_status)
                                 <td>
                                     <input type="checkbox"
-                                           wire:click="check_status({{$pivot_status->pivot->id}})"                           value="{{$pivot_status->pivot->id}}"
+                                           wire:click="check_status({{$pivot_status->pivot->id}})"
+                                           value="{{$pivot_status->pivot->id}}"
                                            @if ($pivot_status->pivot->access)
                                            checked
+                                        @if ($status_key==$pivot_status_key)
+                                            disabled
+                                        @endif
                                         @endif
                                     />
                                 </td>
