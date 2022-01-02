@@ -28,10 +28,11 @@
                                            value="{{$pivot_status->pivot->id}}"
                                            @if ($pivot_status->pivot->access)
                                            checked
-                                        @if ($status_key==$pivot_status_key)
-                                            disabled
+                                           @endif
+                                           @if ($status_key==$pivot_status_key)
+                                           disabled
                                         @endif
-                                        @endif
+
                                     />
                                 </td>
                             @endforeach
