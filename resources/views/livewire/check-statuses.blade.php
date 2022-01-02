@@ -32,7 +32,6 @@
                                            @if ($status_key==$pivot_status_key)
                                            disabled
                                         @endif
-
                                     />
                                 </td>
                             @endforeach
