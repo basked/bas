@@ -16,7 +16,8 @@ class MessagerController extends Controller
      public function __construct()
      {
           app()->bind(MessagerContract::class, function ($app) {
-             return new Telegram(new Http(), config('bots.bot'));
+             return new Mailer(new Http(), config('bots.bot'));
+//             return new Telegram(new Http(), config('bots.bot'));
          });
      }
 
