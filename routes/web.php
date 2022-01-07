@@ -30,6 +30,8 @@ Route::prefix('service')->group(function () {
     Route::get('/bas', [\App\Http\Controllers\BasController::class, 'index']);
     Route::get('/video', [\App\Http\Controllers\VideoController::class, 'index']);
     Route::get('/shop', [\App\Http\Controllers\WriterController::class, 'index']);
+    Route::get('/messager', [\App\Http\Controllers\MessagerController::class, 'send']);
+
 });
 
 Route::get('categories/notfound', function () {

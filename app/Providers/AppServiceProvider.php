@@ -20,10 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(VideoHosting::class,function (){
-            // Сдесь можем заменить на Youtube
-            return new Vimeo();
-        });
+//        $this->app->bind(VideoHosting::class,function (){
+//            // Сдесь можем заменить на Youtube
+//            return new Vimeo();
+//        });
         $this->app->bind(ProductWriter::class,function (){
             return new XmlProductWritter();
         });

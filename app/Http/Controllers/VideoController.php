@@ -5,7 +5,6 @@ use App\Contracts\Video\VideoHosting;
 use App\Services\Video\Vimeo;
 use App\Services\Video\Youtube;
 use Illuminate\Foundation\Application;
-//use App\Contracts\Video\VideoHosting;
 use Illuminate\Container\Container;
 
 
@@ -14,10 +13,12 @@ class VideoController extends Controller
 
     public function __construct()
     {
-        app()->bind(VideoHosting::class,function (){
-            // Сдесь можем заменить на Youtube
-            return new Youtube();
-        });
+
+//        app()->bind(VideoHosting::class,Youtube::class);
+//        app()->bind(VideoHosting::class,function (){
+//            // Сдесь можем заменить на Youtube
+//            return new Youtube();
+//        });
     }
 
     public function index(VideoHosting $service)
