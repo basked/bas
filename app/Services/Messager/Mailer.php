@@ -8,12 +8,13 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Mail;
 
 class Mailer implements MessagerContract
 {
-    function sendMessage($chat_id, $message)
+    function sendMessage($receiver, $message)
     {
-       $mail= new MailMessagerNotification($message);
-       $mail->toMail(76789);
+        Mail::to($receiver)->send(new \App\Mail\MailMessage($message));
+
     }
 }

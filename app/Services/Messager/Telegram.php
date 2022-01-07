@@ -20,11 +20,11 @@ class Telegram implements MessagerContract
     }
 
 
-    public function sendMessage($chat_id, $message)
+    public function sendMessage($receiver, $message)
     {
         return $this->http::post(self::url . $this->bot . '/sendMessage',
             [
-                'chat_id' => $chat_id,
+                'chat_id' => $receiver,
                 'text' => $message,
                 'parse_mode' => 'html'
             ]);
