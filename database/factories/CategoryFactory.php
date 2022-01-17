@@ -17,7 +17,6 @@ class CategoryFactory extends Factory
         return [
             'name' => $name,
             'slug' => \Illuminate\Support\Str::slug($name),
-            'category_id' => Category::inRandomOrder()->first()?->id //?? null
         ];
     }
 }
