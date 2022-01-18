@@ -12,11 +12,31 @@ class Post extends Model
 
     protected $table = 'posts';
     protected $fillable = [
+        'user_id',
+        'category_id',
         'title',
         'slug',
         'content',
-        'user_id',
-        'category_id',
+        'excerpt',
         'status',
     ];
+
+    public function post()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class,'post_tag')
+    }
 }
