@@ -15,11 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->index('post_user_idx')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->index('post_category_idx')->constrained('categories')->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
+            $table->string('excerpt', 500)->nullable();
             $table->text('content')->nullable();
-            $table->foreignId('user_id')->index('post_user_idx')->constrained('users')->onDelete('cascade');
-            $table->foreignId('category_id')->index('post_category_idx')->constrained('categories')->onDelete('cascade');;
             $table->integer('status')->default(1);
             $table->timestamps();
         });
