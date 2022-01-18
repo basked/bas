@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory(10)->create()->each(function ($user) {
-            Post::factory(15)->create(['user_id' => $user->id])->each(function ($post) {
+            Post::factory(15)->create(['user_id' => $user->id])->each(function ($post) use ($user){
                Comment::factory(5)->create(['post_id' => $post->id]);
             });
         });

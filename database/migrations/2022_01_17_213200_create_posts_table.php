@@ -17,8 +17,9 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->text('body')->nullable();
-            $table->foreignId('user_id')->constrained('users');
+            $table->text('content')->nullable();
+            $table->foreignId('user_id')->index('post_user_idx')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->index('post_category_idx')->constrained('categories')->onDelete('cascade');;
             $table->integer('status')->default(1);
             $table->timestamps();
         });

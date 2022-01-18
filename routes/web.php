@@ -55,3 +55,7 @@ Route::get('statuses',[\App\Http\Controllers\StatusController::class,'index']);
 //Auth::routes();
 //
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
