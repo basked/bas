@@ -6,15 +6,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+
     public function definition()
     {
         return [
-           'text'=>$this->faker->text
+            'post_id' => $this->faker->buildingNumber(),
+            'user_id' => $this->faker->buildingNumber(),
+            'published_by' => $this->faker->buildingNumber(),
+            'content' => $this->faker->word(),
         ];
     }
 }

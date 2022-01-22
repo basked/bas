@@ -13,10 +13,12 @@ class CategoryFactory extends Factory
 
     public function definition()
     {
-        $name = $this->faker->text(20);
+        $title = $this->faker->text(20);
         return [
-            'name' => $name,
-            'slug' => Str::slug($name),
+            'title' => $title,
+            'slug' => Str::slug($title),
+            'content' => $this->faker->words,
+            'parent_id' =>$this->faker->randomDigit(5),
         ];
     }
 }
