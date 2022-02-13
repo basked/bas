@@ -10,7 +10,7 @@ class TagFactory extends Factory
 
     public function definition()
     {
-        $title = $this->faker->title;
+        $title = $this->faker->word(1) ;
         return [
             'title' => $title,
             'slug' => Str::slug($title),

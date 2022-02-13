@@ -8,14 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
 
-    protected $table = 'category';
+    protected $table = 'categories';
     protected $fillable = ['title', 'slug', 'content', 'parent_id'];
     use HasFactory;
 
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
+
    // One category -> Many posts
     public function posts()
     {

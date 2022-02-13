@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use Illuminate\Database\Seeder;
 
-class TagSeeder extends Seeder
+class PostSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,8 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Post::factory(1024)->create()->each(function($post_id){
+
+        }) ;
     }
 }
